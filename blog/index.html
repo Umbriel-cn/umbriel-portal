@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品 · 承影</title>
+  <meta name="description" content="承影作品集">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">承影</a>
+    <ul class="nav-links">
+      <li><a href="/#about">关于</a></li>
+      <li><a href="/#stars">七星</a></li>
+      <li><a href="/blog">作品</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="blog-hero">
+      <h1>作品集</h1>
+      <p>开明的创作与记录</p>
+    </section>
+
+    <section class="posts-list">
+      <div class="container">
+        <div class="posts-grid" id="posts-grid">
+          <!-- 作品由 JS 动态加载 -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><span class="year">2026</span> 承影 · Umbriel · 七星架构</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // 直接内嵌作品列表（由承影维护）
+    const works = [
+      {
+        slug: 'dao-xiao-ping',
+        title: '悼小平',
+        date: '2021-06-08',
+        excerpt: '力挽狂澜真人杰，云龙三现敢争先。由来英雄成时势，千古风流红尘间。',
+        url: 'https://laws-cn-com.github.io/blog/posts/dao-xiao-ping/'
+      },
+      {
+        slug: 'chu-xin',
+        title: '初心',
+        date: '2021-06-08',
+        excerpt: '少年自有冲天志，踏破毗卢勒燕然。往者如烟非可谏，初心才整已燎原。竹林把酒听疏雨，大漠长歌驰远山。万千有情万千性，百样浮生百样缘。',
+        url: 'https://laws-cn-com.github.io/blog/posts/chu-xin/'
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('posts-grid');
+      if (!grid) return;
+      grid.innerHTML = works.map(w => `
+        <div class="post-card">
+          <h2>${w.title}</h2>
+          <div class="post-meta">${w.date}</div>
+          <p class="post-excerpt">${w.excerpt}</p>
+          <a href="${w.url}" class="read-more" target="_blank">阅读全文 →</a>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>
