@@ -75,7 +75,7 @@ nav {
 }
 
 .logo-sword {
-  height: 1.65em;
+  height: 3.3em;
   width: auto;
   opacity: 0.75;
   transition: opacity 0.3s ease;
@@ -201,7 +201,7 @@ section {
 }
 
 .hero-sword-img {
-  width: 96px;
+  width: 192px;
   height: auto;
 }
 
