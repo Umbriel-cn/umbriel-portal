@@ -69,6 +69,20 @@ nav {
   color: var(--text-primary);
   text-decoration: none;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.logo-sword {
+  height: 1.1em;
+  width: auto;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover .logo-sword {
+  opacity: 1;
 }
 
 .logo::after {
@@ -178,6 +192,21 @@ section {
   filter: blur(100px);
   opacity: 0.15;
   animation: float 8s ease-in-out infinite;
+}
+
+.hero-sword {
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+.hero-sword-img {
+  width: 48px;
+  height: auto;
+}
+
+.hero:hover .hero-sword {
+  opacity: 0.8;
 }
 
 .light-shadow.light {
