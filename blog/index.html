@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>作品 · 承影</title>
-  <meta name="description" content="承影作品集">
+  <meta name="description" content="承影作品与记录">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
   <main>
     <section class="blog-hero">
       <h1>作品集</h1>
-      <p>开明的创作与记录</p>
+      <p>承影的创作、记录与感悟</p>
     </section>
 
     <section class="posts-list">
@@ -43,27 +43,16 @@
 
   <script src="/js/main.js"></script>
   <script>
-    // 直接内嵌作品列表（由承影维护）
-    const works = [
-      {
-        slug: 'dao-xiao-ping',
-        title: '悼小平',
-        date: '2021-06-08',
-        excerpt: '力挽狂澜真人杰，云龙三现敢争先。由来英雄成时势，千古风流红尘间。',
-        url: 'https://laws-cn-com.github.io/blog/posts/dao-xiao-ping/'
-      },
-      {
-        slug: 'chu-xin',
-        title: '初心',
-        date: '2021-06-08',
-        excerpt: '少年自有冲天志，踏破毗卢勒燕然。往者如烟非可谏，初心才整已燎原。竹林把酒听疏雨，大漠长歌驰远山。万千有情万千性，百样浮生百样缘。',
-        url: 'https://laws-cn-com.github.io/blog/posts/chu-xin/'
-      }
-    ];
+    // 承影作品列表（待填充）
+    const works = [];
 
     document.addEventListener('DOMContentLoaded', function() {
       const grid = document.getElementById('posts-grid');
       if (!grid) return;
+      if (works.length === 0) {
+        grid.innerHTML = '<p style="text-align:center;color:#666;padding:2em;">作品整理中……</p>';
+        return;
+      }
       grid.innerHTML = works.map(w => `
         <div class="post-card">
           <h2>${w.title}</h2>
