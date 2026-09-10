@@ -236,10 +236,8 @@ section {
   50% { transform: translate(30px, -30px) scale(1.1); }
 }
 
-.seven-stars {
-  padding: 10rem 0;
-  background: var(--bg-secondary);
-  position: relative;
+.philosophy {
+  padding: 8rem 0;
 }
 
 .section-title {
@@ -257,6 +255,44 @@ section {
   color: var(--text-secondary);
   letter-spacing: 0.2em;
   margin-bottom: 4rem;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.philosophy-item {
+  padding: 2rem;
+  text-align: center;
+}
+
+.philosophy-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.philosophy-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.philosophy-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.seven-stars {
+  padding: 10rem 0;
+  background: var(--bg-secondary);
+  position: relative;
 }
 
 .stars-grid {
@@ -326,42 +362,6 @@ section {
   opacity: 0.7;
 }
 
-.philosophy {
-  padding: 8rem 0;
-  text-align: center;
-}
-
-.philosophy-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin-top: 4rem;
-}
-
-.philosophy-item {
-  padding: 2rem;
-}
-
-.philosophy-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-}
-
-.philosophy-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.philosophy-text {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.9;
-}
-
 footer {
   padding: 4rem 0;
   text-align: center;
@@ -375,115 +375,52 @@ footer .year {
   color: var(--accent-dark);
 }
 
-.blog-hero {
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-top: 8rem;
-}
-
-.blog-hero h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: 0.4em;
-  margin-bottom: 1rem;
-}
-
-.blog-hero p {
-  color: var(--text-secondary);
-  letter-spacing: 0.2em;
-}
-
-.posts-list {
-  padding: 4rem 0 8rem;
-}
-
-.posts-grid {
-  display: grid;
-  gap: 2rem;
-}
-
-.post-card {
+/* 通用卡片样式 */
+.card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
-  padding: 2.5rem;
+  padding: 2rem;
   transition: all 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
-  display: block;
 }
 
-.post-card:hover {
+.card:hover {
   border-color: var(--accent-dark);
-  transform: translateX(8px);
   box-shadow: 0 10px 30px var(--shadow-color);
 }
 
-.post-card h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.post-card .post-meta {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-  letter-spacing: 0.1em;
-}
-
-.post-card .post-excerpt {
-  color: var(--text-secondary);
-  line-height: 1.8;
-  font-size: 0.95rem;
-}
-
-.post-card .read-more {
-  display: inline-block;
-  margin-top: 1.5rem;
+/* 按钮/链接样式 */
+.btn-link {
   color: var(--accent-light);
+  text-decoration: none;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.post-card:hover .read-more {
+.btn-link:hover {
   letter-spacing: 0.2em;
-}
-
-.article {
-  padding: 8rem 0;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.article-header {
-  text-align: center;
-  margin-bottom: 4rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.article-header h1 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  margin-bottom: 1.5rem;
   color: var(--text-primary);
 }
 
-.article-meta {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
 }
 
+.tag-amber { background: rgba(201, 194, 184, 0.2); color: var(--accent-light); }
+.tag-green { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+.tag-blue { background: rgba(33, 150, 243, 0.2); color: #2196f3; }
+.tag-purple { background: rgba(156, 39, 176, 0.2); color: #9c27b0; }
+
+/* 文章样式 */
 .article-content {
   font-size: 1.05rem;
   line-height: 2;
@@ -496,29 +433,152 @@ footer .year {
   letter-spacing: 0.2em;
   margin: 2.5rem 0 1.5rem;
   color: var(--accent-light);
+  border-left: 4px solid var(--accent-light);
+  padding-left: 1rem;
+}
+
+.article-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin: 2rem 0 1rem;
+  color: var(--text-primary);
 }
 
 .article-content p {
   margin-bottom: 1.5rem;
 }
 
-.back-link {
-  display: inline-block;
+.article-content blockquote {
+  border-left: 4px solid var(--accent-light);
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin: 2rem 0;
+}
+
+.article-content ul, .article-content ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+}
+
+.article-content a {
+  color: var(--accent-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.article-content a:hover {
+  color: var(--text-primary);
+}
+
+.article-content hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 3rem 0;
+}
+
+.article-content code {
+  background: var(--bg-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.article-content pre {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+/* 标签筛选按钮 */
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
   margin-bottom: 2rem;
+}
+
+.tag-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tag-btn:hover {
+  border-color: var(--accent-dark);
+  color: var(--text-primary);
+}
+
+.tag-btn.active {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: var(--text-primary);
+}
+
+/* 返回链接 */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
-  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
 }
 
 .back-link:hover {
   color: var(--text-primary);
 }
 
+/* 文章头部 */
+.article-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.article-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.article-meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+}
+
+/* 响应式 */
 @media (max-width: 1024px) {
   .stars-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+  .philosophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-title {
+    font-size: 3rem;
   }
 }
 
@@ -526,9 +586,16 @@ footer .year {
   nav {
     padding: 1rem 1.5rem;
   }
+  .nav-links {
+    gap: 1.5rem;
+  }
   .hero-title {
     font-size: 2.5rem;
     letter-spacing: 0.3em;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
   }
   .stars-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -540,8 +607,16 @@ footer .year {
   .section-title {
     font-size: 1.5rem;
   }
+  .hero-tagline {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
 }
 
+/* 滚动条样式 */
 ::-webkit-scrollbar {
   width: 8px;
 }
