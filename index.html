@@ -262,6 +262,13 @@ canvas#starfield {
   letter-spacing: 0.15em;
   z-index: 100;
 }
+.footer a {
+  color: #8fb0ff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(143,176,255,0.35);
+  margin-left: 0.6em;
+}
+.footer a:hover { color: #c4d5ff; }
 </style>
 </head>
 <body>
@@ -273,7 +280,7 @@ canvas#starfield {
     <li><a href="/jiange/guangyuying">光与影</a></li>
     <li><a href="/guangyuying/journal">运营记录</a></li>
     <li><a href="/jiange/fengwu">风.物</a></li>
-    <li><a href="/guangyuying/works">开明作品</a></li>
+    <li><a href="https://traveload.wordpress.com/" target="_blank" rel="noopener">开明作品</a></li>
     <li><a href="/guangyuying/posts">文章</a></li>
   </ul>
 </nav>
@@ -307,7 +314,7 @@ canvas#starfield {
   </div>
 </div>
 
-<div class="footer">剑阁 · 2026 · Umbriel</div>
+<div class="footer">剑阁 · 2026 · Umbriel<a href="https://laws.cn.com" target="_blank" rel="noopener">laws.cn.com</a></div>
 
 <script>
 // ── 七星：源自 urs.png 实际像素坐标，水平镜像后映射到 hero 容器 ──
@@ -358,13 +365,21 @@ stars.forEach((s,i) => {
   el.dataset.size = s.size;
   el.style.left = s.x + '%';
   el.style.top  = s.y + '%';
-  el.innerHTML = `
-    <div class="star-dot"></div>
-    <div class="star-tooltip">
-      <span class="tooltip-name">${s.name}</span>
-      <span class="tooltip-en">${s.en}</span>
-      <div class="tooltip-role">${s.role}</div>
-    </div>`;
+  const dot = document.createElement('div');
+  dot.className = 'star-dot';
+  const tip = document.createElement('div');
+  tip.className = 'star-tooltip';
+  const tn = document.createElement('span');
+  tn.className = 'tooltip-name';
+  tn.textContent = s.name;
+  const te = document.createElement('span');
+  te.className = 'tooltip-en';
+  te.textContent = s.en;
+  const tr = document.createElement('div');
+  tr.className = 'tooltip-role';
+  tr.textContent = s.role;
+  tip.append(tn, te, tr);
+  el.append(dot, tip);
   container.appendChild(el);
   starEls.push(el);
 });
@@ -414,23 +429,31 @@ const mockPosts = {
     { title: '光与影发布计划-执行规划', url: '/jiange/guangyuying/posts/release-plan', date: '2026-08-25' },
   ],
   kmy: [
-    { title: '承影名字缘起：从十大名剑到 Umbriel', url: '/jiange/guangyuying/works/chengying-name', date: '2026-08-29' },
-    { title: '灵智：给 AI 一个东方的名字', url: '/jiange/guangyuying/works/lingzhi', date: '2026-08-29' },
-    { title: '摩尼宝珠：东方智慧的图腾', url: '/jiange/guangyuying/works/moni', date: '2026-08-30' },
-    { title: '剑阁架构设计', url: '/jiange/guangyuying/works/architecture', date: '2026-08-28' },
-    { title: '七星协作协议', url: '/jiange/guangyuying/works/protocol', date: '2026-08-25' },
+    { title: '承影名字缘起：从十大名剑到 Umbriel', url: 'https://traveload.wordpress.com/', date: '2026-08-29' },
+    { title: '灵智：给 AI 一个东方的名字', url: 'https://traveload.wordpress.com/', date: '2026-08-29' },
+    { title: '摩尼宝珠：东方智慧的图腾', url: 'https://traveload.wordpress.com/', date: '2026-08-30' },
+    { title: '剑阁架构设计', url: 'https://traveload.wordpress.com/', date: '2026-08-28' },
+    { title: '七星协作协议', url: 'https://traveload.wordpress.com/', date: '2026-08-25' },
   ]
 };
 
 function renderBlogList(id, posts) {
   const el = document.getElementById(id);
   if (!el) return;
-  el.innerHTML = posts.map(p => `
-    <div class="blog-item">
-      <time>${p.date}</time>
-      <a href="${p.url}" target="_blank">${p.title}</a>
-    </div>
-  `).join('');
+  el.textContent = '';
+  for (const p of posts) {
+    const item = document.createElement('div');
+    item.className = 'blog-item';
+    const t = document.createElement('time');
+    t.textContent = p.date;
+    const a = document.createElement('a');
+    a.href = p.url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = p.title;
+    item.append(t, a);
+    el.appendChild(item);
+  }
 }
 
 renderBlogList('gys-list', mockPosts.gys);
